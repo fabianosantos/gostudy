@@ -12,16 +12,24 @@ func init() {
 }
 
 func main() {
+	//EXMPLO DE UTILIZAÇÃO DE PACKAGES
 	fmt.Println("Hello World!!!")
 	fmt.Println(puppy.Bark())
 	fmt.Println(puppy.Barks())
 
+
+	//EXEMPLO DE IF STATEMENT
 	if x := 10; x>1 {
 		fmt.Println("x > 1")
 	}
+	
 
+	//EXEMPLO DE MATH RAND
 	fmt.Println("Rand:", rand.Intn(10))
 
+
+
+	//EXEMPLO DE GOROUTINES E UTILIZAÇÃO DE CHANNELS
 	ch1 := make(chan time.Duration) // criando channel de retorno tipo time.Duration
 	ch2 := make(chan time.Duration)
 
@@ -30,7 +38,7 @@ func main() {
 
 	//Criando duas goroutines
 	//O método go precisa receber uma chamada de função
-	//Cada função domirá por um tempo random
+	//Cada função dormirá por um tempo random
 	go func() {
 		time.Sleep(d1 * time.Millisecond)
 		ch1 <- d1
@@ -40,6 +48,8 @@ func main() {
 		ch2 <- d2
 	}()
 
+	//O metodo select é muito parecido com um switch statement
+	//porem o switch é de uso comum, já o select é para uso especifico de codigo concorrente utilizando channels
 	select {
 	case v1 := <- ch1:
 		fmt.Println("Valor channel 1", v1)
