@@ -19,17 +19,39 @@ func main() {
 
 
 	//EXEMPLO DE IF STATEMENT
+	fmt.Println("\n========= IF X > 1 ========\n")
 	if x := 10; x>1 {
 		fmt.Println("x > 1")
 	}
-	
+
 
 	//EXEMPLO DE MATH RAND
+	fmt.Println("\n========= MATH RAND ========\n")
 	fmt.Println("Rand:", rand.Intn(10))
+
+
+	//FOR RANGE SLICE
+	fmt.Println("\n========= FOR RANGE SLICE ========\n")
+	s := []int{5,6,7,8,9,10}
+	for i, v := range s {
+		fmt.Println("Ranging over a slice", i, v)
+	}
+
+	//FOR RANGE MAP
+	fmt.Println("\n========= FOR RANGE MAP ========\n")
+	m := map[string]string{
+		"name": "James",
+		"surname": "Richard",
+		"age": "42",
+	}
+	for k,v := range m {
+		fmt.Printf("%s: %s \n", k, v)
+	}
 
 
 
 	//EXEMPLO DE GOROUTINES E UTILIZAÇÃO DE CHANNELS
+	fmt.Println("\n========= GOROUTINES ========\n")
 	ch1 := make(chan time.Duration) // criando channel de retorno tipo time.Duration
 	ch2 := make(chan time.Duration)
 
